@@ -16,7 +16,8 @@ const questions = [
 ];
 
 const skillNames = ["Vocabulary", "Grammar", "Reading"];
-const bookingReadinessThreshold = 50;
+const minimumCorrectForFullMock = 10;
+const minimumCorrectPerSkillForFullMock = 3;
 const screens = ["welcome-screen", "reflection-screen", "quiz-screen", "results-screen"];
 let currentQuestion = 0;
 let answers = Array(questions.length).fill(null);
@@ -113,19 +114,18 @@ function renderResults() {
   const overallPercent = Math.round((totalCorrect / questions.length) * 100);
   get("overall-percent").textContent = `${overallPercent}%`;
   get("results-kicker").textContent = overallPercent >= 75 ? "A STRONG SNAPSHOT" : overallPercent >= 50 ? "A GOOD START" : "A PLACE TO GROW";
-  get("results-subtitle").textContent = overallPercent >= 75
-    ? "You handled many of these A1 questions well. Keep building on that momentum."
-    : "Every missed question gives you a useful clue about what to practise next.";
+  get("results-subtitle").textContent = "This short check is for diagnosis. It helps you choose what to practise next; it does not decide whether to book.";
 
-  const recommendation = get("booking-recommendation");
-  const readyToConsiderBooking = overallPercent >= bookingReadinessThreshold;
-  recommendation.classList.toggle("needs-practice", !readyToConsiderBooking);
-  get("recommendation-title").textContent = readyToConsiderBooking
-    ? "You could move ahead with booking your exam."
-    : "Consider practising a little more before booking.";
-  get("recommendation-detail").textContent = readyToConsiderBooking
-    ? `You reached our ${bookingReadinessThreshold}% guide on this short check. Before committing to the exam fee or travel, consider asking a teacher to review your speaking and writing too.`
-    : `You scored below our ${bookingReadinessThreshold}% guide. This is a suggestion, not a verdict: practise the areas below, then retake the check or ask a teacher to review your readiness before paying the exam fee or arranging travel.`;
+  const recommendation = get("next-step-recommendation");
+  const readyForFullMock = totalCorrect >= minimumCorrectForFullMock
+    && scores.every((score) => score.correct >= minimumCorrectPerSkillForFullMock);
+  recommendation.classList.toggle("needs-practice", !readyForFullMock);
+  get("recommendation-title").textContent = readyForFullMock
+    ? "You’re ready to try a full mock exam."
+    : "Practise these areas, then try a full mock.";
+  get("recommendation-detail").textContent = readyForFullMock
+    ? `You scored ${totalCorrect}/${questions.length}, with at least ${minimumCorrectPerSkillForFullMock}/4 in each area. This provisional screen is a next step, not approval to book. Try a timed mock for your target exam, including listening, writing and speaking.`
+    : `For this provisional screen, aim for at least ${minimumCorrectForFullMock}/${questions.length} overall and ${minimumCorrectPerSkillForFullMock}/4 in every area. Practise the topics below, then retake this check. Even meeting the rule only suggests taking a full mock; it does not mean you’re ready to book.`;
 
   get("skill-results").innerHTML = scores.map(({ skill, correct, total, percent }) => `
     <article class="skill-card">

@@ -1038,7 +1038,7 @@ body {
   cursor:not-allowed
 }
 
-.booking-recommendation {
+.next-step-recommendation {
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -1049,7 +1049,7 @@ body {
   border-radius: 5px;
   background: #edf4ec;
 }
-.booking-recommendation.needs-practice {
+.next-step-recommendation.needs-practice {
   border-color: #eadfd3;
   border-left-color: #c28b65;
   background: #f8f2eb;
@@ -1068,10 +1068,10 @@ body {
   background: #f0e4d8;
   color: #986b4b;
 }
-.booking-recommendation .results-kicker {
+.next-step-recommendation .results-kicker {
   margin: 0 0 5px;
 }
-.booking-recommendation h2 {
+.next-step-recommendation h2 {
   margin: 0;
   color: #304b37;
   font: 700 16px/1.4 var(--display);
@@ -1080,7 +1080,7 @@ body {
 .needs-practice h2 {
   color: #694f3d;
 }
-.booking-recommendation div > p:last-child {
+.next-step-recommendation div > p:last-child {
   max-width: 800px;
   margin: 6px 0 0;
   color: #65736a;
@@ -1088,8 +1088,8 @@ body {
   line-height: 1.6;
 }
 @media(max-width:600px) {
-  .booking-recommendation { padding: 15px; }
-  .booking-recommendation h2 { font-size: 14px; }
+  .next-step-recommendation { padding: 15px; }
+  .next-step-recommendation h2 { font-size: 14px; }
 }
 
 /* Visual direction based on the supplied indigo, lavender and pastel reference. */
@@ -1330,13 +1330,13 @@ body {
 .disclaimer {
   color:#73748f;
 }
-.booking-recommendation {
+.next-step-recommendation {
   border-color:#d8ece3;
   border-left-color:#39a17c;
   background:#eaf6f0;
   border-radius:10px;
 }
-.booking-recommendation.needs-practice {
+.next-step-recommendation.needs-practice {
   border-color:#f0e2da;
   border-left-color:#dc9875;
   background:#fff2ec;
@@ -1350,13 +1350,13 @@ body {
   background:#f8dfd2;
   color:#a76545;
 }
-.booking-recommendation h2 {
+.next-step-recommendation h2 {
   color:#245d48;
 }
 .needs-practice h2 {
   color:#7c4e38;
 }
-.booking-recommendation div>p:last-child {
+.next-step-recommendation div>p:last-child {
   color:#5e7167;
 }
 .needs-practice div>p:last-child {
