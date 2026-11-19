@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f2" />
+    <meta name="description" content="A short A1 German learning check with personal practice recommendations." />
+    <title>Ready, Set, Deutsch — A1 Learning Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ready, Set, Deutsch home">
+        <span class="brand-mark" aria-hidden="true">R<span>.</span></span>
+        <span>ready, set, <b>deutsch</b></span>
+      </a>
+      <span class="top-note"><span class="live-dot"></span> A1 learning check</span>
+    </header>
+
+    <main id="app" class="shell">
+      <section id="welcome-screen" class="screen welcome-screen" aria-labelledby="welcome-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT STEP, MADE CLEAR</p>
+          <h1 id="welcome-title">Ready for your<br /><span>German A1 exam?</span></h1>
+          <p class="hero-lede">A little clarity can save you a lot of worry. Take a quick check, discover what’s already clicking, and find out what to practise next.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="begin-button">Let’s find out <span aria-hidden="true">→</span></button>
+            <span class="time-note"><span aria-hidden="true">◷</span> About 5 minutes · 12 questions</span>
+          </div>
+          <div class="trust-note"><span class="check-icon" aria-hidden="true">✓</span> No grades. Just a helpful next step.</div>
+        </div>
+        <aside class="hero-art" aria-label="Three parts of the learning check: vocabulary, grammar and reading">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-spark spark-one">✳</div><div class="art-spark spark-two">✳</div>
+          <div class="floating-card card-vocab"><span class="card-icon peach">W</span><span><small>01 / WÖRTER</small><b>Vocabulary</b></span><span class="tiny-arrow">↗</span></div>
+          <div class="floating-card card-grammar"><span class="card-icon mint">Aa</span><span><small>02 / GRAMMATIK</small><b>Grammar</b></span><span class="tiny-arrow">↗</span></div>
+          <div class="floating-card card-reading"><span class="card-icon lilac">≡</span><span><small>03 / LESEN</small><b>Reading</b></span><span class="tiny-arrow">↗</span></div>
+          <div class="art-caption"><span class="caption-line"></span><span>Small steps. <b>Real progress.</b></span></div>
+          <span class="art-number">A1</span>
+        </aside>
+        <div class="welcome-footer"><span>BUILT FOR LEARNERS, NOT JUST TEST TAKERS</span><span>01 — 03</span></div>
+      </section>
+
+      <section id="reflection-screen" class="screen hidden" aria-labelledby="reflection-title">
+        <div class="flow-heading"><p class="eyebrow"><span class="eyebrow-line"></span> BEFORE WE BEGIN</p><span class="step-count">01 <i>/</i> 03</span></div>
+        <div class="reflection-layout">
+          <div class="reflection-intro">
+            <h1 id="reflection-title">How do you feel<br />about your <span>German?</span></h1>
+            <p>Go with your first instinct. At the end, you can compare how you felt with how you did.</p>
+            <div class="note-card"><span class="note-star">✳</span><p>There are no wrong answers here. This is just a snapshot of <em>your</em> confidence today.</p></div>
+          </div>
+          <div class="reflection-form">
+            <label class="field-label" for="strongest-skill">Which area feels strongest right now?</label>
+            <select id="strongest-skill"><option value="">Choose one…</option><option value="Vocabulary">Vocabulary</option><option value="Grammar">Grammar</option><option value="Reading">Reading</option></select>
+            <label class="field-label second-label" for="practice-skill">Which area would you most like to practise?</label>
+            <select id="practice-skill"><option value="">Choose one…</option><option value="Vocabulary">Vocabulary</option><option value="Grammar">Grammar</option><option value="Reading">Reading</option></select>
+            <p class="field-hint" id="reflection-hint">Pick two different areas. You can change your mind later.</p>
+            <button class="button button-primary button-wide" id="start-quiz-button">Start my check <span aria-hidden="true">→</span></button>
+            <button class="text-button" id="skip-reflection">Skip this step</button>
+          </div>
+        </div>
+        <div class="welcome-footer"><span>A MOMENT TO CHECK IN WITH YOURSELF</span><span>02 — 03</span></div>
+      </section>
+
+      <section id="quiz-screen" class="screen hidden" aria-labelledby="question-text">
+        <div class="flow-heading"><p class="eyebrow"><span class="eyebrow-line"></span> YOUR A1 LEARNING CHECK</p><span class="step-count" id="quiz-step">02 <i>/</i> 03</span></div>
+        <div class="quiz-topline"><span id="question-category" class="category-chip">VOCABULARY</span><span id="question-number" class="question-number">QUESTION 01 <span>OF 12</span></span></div>
+        <div class="progress-track" aria-label="Quiz progress"><div id="progress-fill" class="progress-fill"></div></div>
+        <div class="quiz-card">
+          <div class="question-copy"><p class="question-context" id="question-context">Choose the best answer.</p><h1 id="question-text">Loading question…</h1></div>
+          <div id="answer-list" class="answer-list" role="group" aria-label="Answer choices"></div>
+          <p id="answer-hint" class="answer-hint" aria-live="polite">Select one answer to continue.</p>
+          <div class="quiz-controls"><button class="text-button back-button" id="back-button">← Back</button><button class="button button-primary" id="next-button" disabled>Continue <span aria-hidden="true">→</span></button></div>
+        </div>
+        <div class="quiz-footnote"><span>Take your time — there’s no timer.</span><span>LISTEN TO YOUR GUT, THEN TRUST THE EVIDENCE.</span></div>
+      </section>
+
+      <section id="results-screen" class="screen hidden" aria-labelledby="results-title">
+        <div class="flow-heading"><p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL SNAPSHOT</p><span class="step-count">03 <i>/</i> 03</span></div>
+        <div class="results-heading"><div><p class="results-kicker" id="results-kicker">A GOOD START</p><h1 id="results-title">Here’s where you are,<br /><span>and where to go next.</span></h1></div><div class="overall-score"><strong id="overall-percent">0%</strong><span>of this check<br />correct</span></div></div>
+        <p class="results-subtitle" id="results-subtitle">A short check is one useful signal. Let’s look at the details.</p>
+        <aside id="booking-recommendation" class="booking-recommendation" aria-live="polite">
+          <span id="recommendation-icon" class="recommendation-icon" aria-hidden="true">✳</span>
+          <div><p class="results-kicker">OUR SUGGESTION</p><h2 id="recommendation-title"></h2><p id="recommendation-detail"></p></div>
+        </aside>
+        <div id="skill-results" class="skill-results"></div>
+        <div id="reflection-result" class="reflection-result hidden"></div>
+        <div class="practice-panel"><div class="practice-title"><span class="practice-icon">✳</span><div><p class="results-kicker">YOUR NEXT LITTLE WINS</p><h2>Practise these before you book</h2></div></div><div id="practice-list" class="practice-list"></div></div>
+        <div class="disclaimer"><span aria-hidden="true">ⓘ</span><p>This is a short learning check, not an official exam or a guarantee of passing. It checks vocabulary, grammar and reading; it does not assess writing or speaking. If you’re booking soon, ask a teacher to review those skills too.</p></div>
+        <div class="results-actions"><button class="button button-primary" id="retry-button">Try again <span aria-hidden="true">↻</span></button><button class="text-button" id="review-button">Review my answers</button></div>
+        <div class="welcome-footer"><span>YOU’RE CLOSER THAN YOU THINK — KEEP GOING</span><span>03 — 03</span></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>MADE WITH CARE FOR YOUR NEXT CHAPTER</span><span>DEUTSCH LERNEN, SCHRITT FÜR SCHRITT <b>✳</b></span></footer>
+  </body>
+</html>
